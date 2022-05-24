@@ -10,8 +10,8 @@ public class actionButtonsTest : MonoBehaviour
     public GameObject liquidBeer;
     public GameObject dialogManager;
 
-    //Les fonctions doivent retourner true si après l'action le dialogue continue normalement, 
-    //et false pour gérer elle même l'appel au dialogStep suivant (en bloquant le dialogManager). 
+    //Les fonctions doivent retourner true si apres l'action le dialogue continue normalement, 
+    //et false pour gerer elle meme l'appel au dialogStep suivant (en bloquant le dialogManager). 
 
     public bool none() { return true; }
 
@@ -32,7 +32,7 @@ public class actionButtonsTest : MonoBehaviour
 
     public bool winFriendshipDoingClown()
     {
-        float negociationSkills = 0.3f; //A remplacer par un paramètre défini par le joueur
+        float negociationSkills = 0.3f; //A remplacer par un paramï¿½tre dï¿½fini par le joueur
         int nbSentencesBeforeEscape = randomVariables.GetComponent<RandomVariables>().geometricLaw(negociationSkills);
         for (int i = 0; i < nbSentencesBeforeEscape; i++)
         {
@@ -45,7 +45,7 @@ public class actionButtonsTest : MonoBehaviour
 
     public bool loseFriendshipDoingPrevention()
     {
-        float negociationSkills = 0.3f; //A remplacer par un paramètre défini par le joueur
+        float negociationSkills = 0.3f; //A remplacer par un paramï¿½tre dï¿½fini par le joueur
         int nbSentencesBeforeEscape = randomVariables.GetComponent<RandomVariables>().geometricLaw(negociationSkills);
         for (int i = 0; i < nbSentencesBeforeEscape; i++)
         {

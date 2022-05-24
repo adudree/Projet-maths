@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9da1a64ce76304e45b8402c86339e208, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eeff6109cdc48714ea4ee2bb7bcec26e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,11 +219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61cd212702af0c4e8367dfdcea95b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corridor: {fileID: 21300000, guid: 9da1a64ce76304e45b8402c86339e208, type: 3}
-  classroom: {fileID: 21300000, guid: 1fbc961c63606c045af809a62d4dc1ed, type: 3}
-  corridor2: {fileID: 21300000, guid: e1f0c1b9d5ae6c14c97e8d410c122a00, type: 3}
-  DataOroom: {fileID: 21300000, guid: c7925a2db2e015c4780b4c525051948a, type: 3}
-  bossRoom: {fileID: 21300000, guid: 2e91b8caf9f74004ebba9162853fbbed, type: 3}
+  hostel: {fileID: 21300000, guid: 3f9cc3dd8a226f641a7c784ab946846e, type: 3}
+  entrance: {fileID: 21300000, guid: eeff6109cdc48714ea4ee2bb7bcec26e, type: 3}
+  classroom: {fileID: 21300000, guid: 22921965daf712a4483ceac3ce3b1b96, type: 3}
+  corridor: {fileID: 21300000, guid: 4ef6725fe2bd4f540992cdccfeb393ec, type: 3}
+  DataOroom: {fileID: 21300000, guid: 05cdb7b4dc6f02342a148dd04d142a1c, type: 3}
+  bossRoom: {fileID: 21300000, guid: 8b432c1c3533c0c4e99c5eceb9bc9c37, type: 3}
   randomVariables: {fileID: 1246883931}
 --- !u!1 &93796008
 GameObject:

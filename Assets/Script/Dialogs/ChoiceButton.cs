@@ -20,8 +20,6 @@ public class ChoiceButton : MonoBehaviour
     {
         choice = newChoice;
         buttonText.GetComponent<Text>().text = choice.buttonText;
-       
-
     }
 
     public void actionAndChangeDialogStep() {
