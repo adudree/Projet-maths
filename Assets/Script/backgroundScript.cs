@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class backgroundScript : MonoBehaviour
 {
-    public Sprite corridor;
+    public Sprite hostel;
+    public Sprite entrance;
     public Sprite classroom;
-    public Sprite corridor2;
+    public Sprite corridor;
     public Sprite DataOroom;
     public Sprite bossRoom;
 
@@ -15,21 +16,27 @@ public class backgroundScript : MonoBehaviour
 
     public void changeBackground(string room)
     {
-        if (room == "classroom")
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = classroom;
-        }
-        if (room == "secondCorridor")
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = corridor2;
-        }
-        if (room == "bossRoom")
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = bossRoom;
-        }
-        if (room == "DataO")
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = DataOroom;
+        switch (room) {
+            case "hostel": 
+                gameObject.GetComponent<SpriteRenderer>().sprite = hostel;
+                break;
+            case "entrance": 
+                gameObject.GetComponent<SpriteRenderer>().sprite = entrance;
+                break; 
+            case "classroom": 
+                gameObject.GetComponent<SpriteRenderer>().sprite = classroom;
+                break; 
+            case "secondCorridor": 
+                gameObject.GetComponent<SpriteRenderer>().sprite = corridor;
+                break;
+            case "bossRoom":
+                gameObject.GetComponent<SpriteRenderer>().sprite = bossRoom;
+                break;
+            case "DataO":
+                gameObject.GetComponent<SpriteRenderer>().sprite = DataOroom;
+                break; 
+            default: 
+                break;
         }
     }
 
@@ -43,10 +50,9 @@ public class backgroundScript : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = color;
         yield return new WaitForSeconds(3f);
         StartCoroutine(changeColorRegularly());
-
     }
 
-        public void stroboColors()
+    public void stroboColors()
     {
         StartCoroutine(changeColorRegularly());
     }

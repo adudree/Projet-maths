@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class RandomVariables : MonoBehaviour
 {
+    // Loi uniforme
     public float uniformLaw(float a, float b)
     {
         float rand = Random.value;
         return (b - a) * rand + a;
     }
 
-    //95% chances to get <=5s with parameter = 0.599
+    // 95% chances to get <= 5s with parameter = 0.599
     public float exponentialLaw(float parameter)
     {
         float rand = Random.value;
         return - (1f/parameter) * Mathf.Log(rand);
     }
 
+    // Loi de Bernoulli 
     bool BernoulliLaw(float parameter)
     {
         if (parameter <= 0f || parameter >= 1f)
@@ -27,6 +29,14 @@ public class RandomVariables : MonoBehaviour
         return rand < parameter;
     }
 
+    // Loi de Rademacher 
+    public int rademacherLaw() {
+        float rand = Random.value; 
+        if (rand < 1/2f) return -1;
+        else return 1; 
+    }
+
+    // Loi gÃ©omÃ©trique
     public int geometricLaw(float parameter)
     {
         int nbTrial = 1;
@@ -78,7 +88,7 @@ public class RandomVariables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Pour vérifier vers où max la loi exponentielle tombe : 
+        //Pour vï¿½rifier vers oï¿½ max la loi exponentielle tombe : 
         /*float valueSup5 = 0;
         for (int i = 0; i < 1000; i++)
         {
@@ -95,12 +105,11 @@ public class RandomVariables : MonoBehaviour
         {
             moyenne += uniformLaw(0f, 100f);
         }
-        Debug.Log("moyenne loi uniforme de 0 à 100 : " + moyenne / 1000f);*/
+        Debug.Log("moyenne loi uniforme de 0 ï¿½ 100 : " + moyenne / 1000f);*/
         }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

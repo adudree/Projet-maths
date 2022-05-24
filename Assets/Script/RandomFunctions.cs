@@ -67,7 +67,7 @@ public class RandomFunctions : MonoBehaviour
         Debug.Log(randomFiniteSet(array1));
 
         float proba = 1f / 6f;
-        Debug.Log("Proba dé = " + proba);
+        Debug.Log("Proba dï¿½ = " + proba);
         float[] array2 = { proba, proba, proba, proba, proba, proba };
         Debug.Log(randomFiniteSet(array2));*/
 
@@ -76,7 +76,7 @@ public class RandomFunctions : MonoBehaviour
         {
             sum += accidentalTime(25);
         }
-        Debug.Log("Mes temps aléatoires :" + sum/1000);
+        Debug.Log("Mes temps aleatoires :" + sum/1000);
     }
 
     // Update is called once per frame
