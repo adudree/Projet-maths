@@ -37,7 +37,7 @@ public class DialogManager : MonoBehaviour
     }
 
     void switchDialogType() {
-        Debug.Log(actualDialog);
+        Debug.Log("actual dialog : " + actualDialog);
         switch (actualDialog)
         {
             case "hostel":
@@ -92,11 +92,8 @@ public class DialogManager : MonoBehaviour
     void setNewStep(DialogStep newDialogStep)
     {
         charName.GetComponent<Text>().text = newDialogStep.characterName;
-
         charPicture.GetComponent<CharacterPicture>().setCharacterPicture(newDialogStep.characterName);
-
         Text.GetComponent<DialogSentenceWriter>().changeSentences(newDialogStep.characterSentences);
-
         choice1Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice1);
         choice2Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice2);
     }
@@ -118,9 +115,4 @@ public class DialogManager : MonoBehaviour
         changeStep(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

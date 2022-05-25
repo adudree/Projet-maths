@@ -1,21 +1,238 @@
 {
     "dialogHostel": [{
-        "_commentaire": 0,
-        "characterName": "Bottle",
-        "characterSentences": [
-            "Salut c moi moumou la Reine des Mouettes..."
-        ],
-        "choice1": {
-            "nextStep": "-1",
-            "action": "none",
-            "buttonText": "Run"
+            "_commentaire": 0,
+            "characterName": "Bottle",
+            "characterSentences": ["So, when will your dessert come?"],
+            "choice1": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "Huh?!"
+            },
+            "choice2": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "What the hell..?"
+            }
         },
-        "choice2": {
-            "nextStep": "-1",
-            "action": "none",
-            "buttonText": "Walk"
+        {
+            "_commentaire": 1,
+            "characterName": "Me",
+            "characterSentences": [
+                "Wait wait wait... Did my *hiccup* bottle just talked to me?",
+                "No, I drank too much, that's *hiccup* all..."
+            ],
+            "choice1": {
+                "nextStep": "2",
+                "action": "none",
+                "buttonText": "*hiccup*"
+            },
+            "choice2": {
+                "nextStep": "2",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
+        {
+            "_commentaire": 2,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Don't I sound real enough for you? You're saddening me, Y'know...",
+                "Life is hard being a lonely bottle of hydromel nowadays..."
+            ],
+            "choice1": {
+                "nextStep": "3",
+                "action": "none",
+                "buttonText": "Sorry..."
+            },
+            "choice2": {
+                "nextStep": "4",
+                "action": "none",
+                "buttonText": "Haha, my bottle is talking!"
+            }
+        },
+        {
+            "_commentaire": 3,
+            "characterName": "Me",
+            "characterSentences": [
+                "Oh, uh... I'm sorry.",
+                "I just never... *hiccup* heard a bottle speaking.",
+                "This answer will increase the friendship level."
+            ],
+            "choice1": {
+                "nextStep": "5",
+                "action": "none",
+                "buttonText": "more *hiccup*"
+            },
+            "choice2": {
+                "nextStep": "5",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
+        {
+            "_commentaire": 4,
+            "characterName": "Me",
+            "characterSentences": [
+                "HAHAHA I definitely drank too much... Or is it a trick? Maybe a toy?",
+                "This answer will decrease the friendship level."
+            ],
+            "choice1": {
+                "nextStep": "6",
+                "action": "none",
+                "buttonText": "more *hiccup*"
+            },
+            "choice2": {
+                "nextStep": "6",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
+        {
+            "_commentaire": 5,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Well.. It's OK, I forgive you."
+            ],
+            "choice1": {
+                "nextStep": "7",
+                "action": "none",
+                "buttonText": "Continue"
+            },
+            "choice2": {
+                "nextStep": "7",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
+        {
+            "_commentaire": 6,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Huh... We don't really start on good basis."
+            ],
+            "choice1": {
+                "nextStep": "7",
+                "action": "none",
+                "buttonText": "Continue"
+            },
+            "choice2": {
+                "nextStep": "7",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
+        {
+            "_commentaire": 7,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "You know, I'm not a normal bottle. Yes I can talk, but I can also help you!",
+                "You can click on me to drink my hydromel. If you do it, I will appreciate you more... Maybe...",
+                "Be careful to not drinking water. I HATE water. And I will hate you if you will do it.",
+                "But you didn't even introduce yourself... What's your name?",
+                "It will call the inputName function... when it will be coded."
+            ],
+            "choice1": {
+                "nextStep": "8",
+                "action": "none",
+                "buttonText": "My name is..."
+            },
+            "choice2": {
+                "nextStep": "8",
+                "action": "none",
+                "buttonText": "I'm..."
+            }
+        },
+        {
+            "_commentaire": 8,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Huh, %name% ? That's quite ugly...",
+                "it will trigger the random name generator."
+            ],
+            "choice1": {
+                "nextStep": "9",
+                "action": "none",
+                "buttonText": "That's not what I said..."
+            },
+            "choice2": {
+                "nextStep": "10",
+                "action": "none",
+                "buttonText": "Yeah, that's my name."
+            }
+        },
+        {
+            "_commentaire": 9,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Woops, sorry... You're %name%, true?",
+                "it will trigger the random name generator."
+            ],
+            "choice1": {
+                "nextStep": "9",
+                "action": "none",
+                "buttonText": "Not really..."
+            },
+            "choice2": {
+                "nextStep": "10",
+                "action": "none",
+                "buttonText": ".... Okay, fine."
+            }
+        },
+        {
+            "_commentaire": 10,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Fine. So... Do you know where your dessert is exactly? Where is the innkeeper?"
+            ],
+            "choice1": {
+                "nextStep": "11",
+                "action": "none",
+                "buttonText": "She's gone."
+            },
+            "choice2": {
+                "nextStep": "11",
+                "action": "none",
+                "buttonText": "I don't know."
+            }
+        },
+        {
+            "_commentaire": 11,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Uh oh... I hope nothing happened.",
+                "You see, a MONSTER lives here, in the dungeon just behind this hostel. A very, very dangerous monster.",
+                "Maybe he ate her... And your dessert with her!"
+            ],
+            "choice1": {
+                "nextStep": "12",
+                "action": "none",
+                "buttonText": "We have to save her!"
+            },
+            "choice2": {
+                "nextStep": "12",
+                "action": "none",
+                "buttonText": "We have to save my dessert!"
+            }
+        },
+        {
+            "_commentaire": 11,
+            "characterName": "Me",
+            "characterSentences": [
+                "Okay, let's go!"
+            ],
+            "choice1": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:entrance",
+                "buttonText": "Leave"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "none",
+                "buttonText": "none"
+            }
         }
-    }],
+
+    ],
     "dialogEntrance": [{
             "_commentaire": 0,
             "characterName": "Bottle",

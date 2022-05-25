@@ -64,9 +64,9 @@ public class actionButtonsTest : MonoBehaviour
     public bool enterNewRoom(string newRoom)
     {
         background.GetComponent<backgroundScript>().changeBackground(newRoom);
+        waterDrop.SetActive(isWaterDropActive(newRoom));
 
-        if (newRoom == "classroom") { waterDrop.SetActive(false); }
-        else if (newRoom == "dataO")
+        if (newRoom == "dataO")
         {
             fumee.SetActive(true);
             fumee.GetComponent<Fumee>().stroboColors();
@@ -75,4 +75,9 @@ public class actionButtonsTest : MonoBehaviour
         }
         return true; 
     }
+
+    bool isWaterDropActive(string room) {
+        return room == "entrance";
+    }
 }
+

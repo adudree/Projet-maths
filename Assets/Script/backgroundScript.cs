@@ -14,6 +14,7 @@ public class backgroundScript : MonoBehaviour
 
     public void changeBackground(string room)
     {
+        Debug.Log("newroom : " + room);
         switch (room) {
             case "hostel": 
                 gameObject.GetComponent<SpriteRenderer>().sprite = hostel;
