@@ -11,8 +11,6 @@ public class backgroundScript : MonoBehaviour
     public Sprite DataOroom;
     public Sprite bossRoom;
 
-    public GameObject randomVariables;
-    int colorState = 0;
 
     public void changeBackground(string room)
     {
@@ -26,13 +24,13 @@ public class backgroundScript : MonoBehaviour
             case "classroom": 
                 gameObject.GetComponent<SpriteRenderer>().sprite = classroom;
                 break; 
-            case "secondCorridor": 
+            case "corridor": 
                 gameObject.GetComponent<SpriteRenderer>().sprite = corridor;
                 break;
             case "bossRoom":
                 gameObject.GetComponent<SpriteRenderer>().sprite = bossRoom;
                 break;
-            case "DataO":
+            case "dataO":
                 gameObject.GetComponent<SpriteRenderer>().sprite = DataOroom;
                 break; 
             default: 
@@ -40,20 +38,5 @@ public class backgroundScript : MonoBehaviour
         }
     }
 
-    IEnumerator changeColorRegularly()
-    {
-        colorState = randomVariables.GetComponent<RandomVariables>().MarkovChainRGB(colorState);
-        Debug.Log("state = " + colorState);
-        float colorRandom = randomVariables.GetComponent<RandomVariables>().uniformLaw(0f, 1f);
-        Color color = gameObject.GetComponent<SpriteRenderer>().color;
-        color[colorState] = colorRandom;
-        gameObject.GetComponent<SpriteRenderer>().color = color;
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(changeColorRegularly());
-    }
 
-    public void stroboColors()
-    {
-        StartCoroutine(changeColorRegularly());
-    }
 }

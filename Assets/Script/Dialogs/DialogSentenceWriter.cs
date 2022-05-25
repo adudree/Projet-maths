@@ -90,15 +90,6 @@ public class DialogSentenceWriter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       /* sentences = new string[3];
-        sentences[0] = "Je suis une patate.";
-        sentences[1] = "Mais je fais ce que je peux.";
-        sentences[2] = "Même si c'est difficile.";
-
-        sentences2 = new string[2];
-        sentences2[0] = "Olala";
-        sentences2[1] = "C'est la panique";*/
-
         continueButton.SetActive(false);
     }
 
@@ -108,19 +99,7 @@ public class DialogSentenceWriter : MonoBehaviour
         if (index == 0 && writing == false && sentences != null)
         {
             StartCoroutine(writeSentence(sentences[index]));
-           /* if(sentences.Length != 1)
-            {
-                continueButton.SetActive(true);
-            }*/
-            //giveChoicesIfTextIsFinish();
         }
-/*
-        if (Input.GetKeyDown("space"))
-        {
-            //print("space key was pressed");
-            changeSentences(sentences2);
-               
-        }*/
     }
 
 }

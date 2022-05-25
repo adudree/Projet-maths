@@ -22,17 +22,38 @@ public class ChoiceButton : MonoBehaviour
         buttonText.GetComponent<Text>().text = choice.buttonText;
     }
 
-    public void actionAndChangeDialogStep() {
+    public void actionAndChangeDialogStep()
+    {
         actionButtonsTest actionButtonScript = actionButtons.GetComponent<actionButtonsTest>();
-        MethodInfo mi = actionButtonScript.GetType().GetMethod(choice.action);
-        bool shouldContinue;
-        object objectReturn = mi.Invoke(actionButtonScript, null);
-        shouldContinue = objectReturn.Equals(true);
+
+        object[] argument = null;
+        string methodName;
+
+        if (choice.action.Contains(":"))
+        {
+            string[] action = choice.action.Split(':');
+            string methodParam = action[1];
+            methodName = action[0];
+
+            argument = new object[] { methodParam };
+        }
+        else
+        {
+            methodName = choice.action; 
+        }
+        MethodInfo mi = actionButtonScript.GetType().GetMethod(methodName);
+
+        object objectReturn = mi.Invoke(actionButtonScript, argument);
+        bool shouldContinue = objectReturn.Equals(true);
+
         Debug.Log("retour value : " + shouldContinue);
+
         if (shouldContinue)
         {
             dialogManager.GetComponent<DialogManager>().changeStep(choice.nextStep);
         }
+
+
     }
 
     // Start is called before the first frame update

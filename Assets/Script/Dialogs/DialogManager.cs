@@ -17,6 +17,8 @@ public class DialogManager : MonoBehaviour
     public int currentStep;
 
     public Dialogs dialogs = new Dialogs();
+    public DialogStep [] currentDialog = new DialogStep [0];
+    public string actualDialog; 
 
     string jsonPath, jsonString;
 
@@ -24,43 +26,101 @@ public class DialogManager : MonoBehaviour
     {
         if (newStep == -1)
         {
-            dialogContainer.SetActive(false);
-        } else
+            // dialogContainer.SetActive(false);
+            switchDialogType(); 
+        }
+        else
         {
             currentStep = newStep;
-            DialogStep newDialogStep = dialogs.dialogSteps[newStep];
-            charName.GetComponent<Text>().text = newDialogStep.characterName;
-
-            charPicture.GetComponent<CharacterPicture>().setCharacterPicture(newDialogStep.characterName);
-
-            Text.GetComponent<DialogSentenceWriter>().changeSentences(newDialogStep.characterSentences);
-            //Debug.Log("before set Choice " + newDialogStep.characterName +" and "+ newDialogStep.choice1.buttonText);
-            choice1Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice1);
-            choice2Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice2);
+            setNewStep(currentDialog[newStep]);
         }
-        
+    }
+
+    void switchDialogType() {
+        Debug.Log(actualDialog);
+        switch (actualDialog)
+        {
+            case "hostel":
+                setNewCurrentDialog("entrance");
+                break;
+            case "entrance":
+                setNewCurrentDialog("classroom");
+                break;
+            case "classroom":
+                setNewCurrentDialog("corridor");
+                break;
+            case "corridor":
+                setNewCurrentDialog("bossRoom");
+                break;            
+            case "dataO":
+                setNewCurrentDialog("bossRoom");
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void setNewCurrentDialog(string dialog, int step = 0) {
+        switch (dialog)
+        {
+            case "entrance":
+                currentDialog = dialogs.dialogEntrance; 
+                actualDialog = "entrance";
+                break;
+            case "classroom":
+                currentDialog = dialogs.dialogClassroom; 
+                actualDialog = "classroom";
+                break;
+            case "corridor":
+                currentDialog = dialogs.dialogCorridor; 
+                actualDialog = "corridor";
+                break;
+            case "bossRoom":
+                currentDialog = dialogs.dialogBossRoom; 
+                actualDialog = "bossRoom";
+                break;            
+            case "dataO":
+                currentDialog = dialogs.dialogBossRoom; 
+                actualDialog = "dataO";
+                break;
+            default:
+                break;
+        }
+        setNewStep(currentDialog[step]);
+    }
+
+    void setNewStep(DialogStep newDialogStep)
+    {
+        charName.GetComponent<Text>().text = newDialogStep.characterName;
+
+        charPicture.GetComponent<CharacterPicture>().setCharacterPicture(newDialogStep.characterName);
+
+        Text.GetComponent<DialogSentenceWriter>().changeSentences(newDialogStep.characterSentences);
+
+        choice1Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice1);
+        choice2Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice2);
     }
 
     public void readJsonDialog()
     {
         jsonPath = Application.streamingAssetsPath + "/dialogues.json";
         jsonString = File.ReadAllText(jsonPath);
-        Debug.Log(jsonString);
         dialogs = JsonUtility.FromJson<Dialogs>(jsonString);
+
+        currentDialog = dialogs.dialogHostel;
+        actualDialog = "hostel";
     }
-    
 
     // Start is called before the first frame update
     void Start()
     {
         readJsonDialog();
-
         changeStep(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

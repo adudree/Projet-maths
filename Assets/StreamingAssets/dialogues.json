@@ -1,257 +1,273 @@
 {
-  "dialogSteps": [
-    {
-      "_commentaire": 0,
-      "characterName": "Bottle",
-      "characterSentences": [
-        "Ok dude we need to hurry. You're so hungry I can hear your stomach moaning. There must be a room after this endless corridor..."
-      ],
-      "choice1": {
-        "nextStep": "2",
-        "action": "enterClassroom",
-        "buttonText": "Run"
-      },
-      "choice2": {
-        "nextStep": "2",
-        "action": "enterClassroom",
-        "buttonText": "Walk"
-      }
-    },
+    "dialogHostel": [{
+        "_commentaire": 0,
+        "characterName": "Bottle",
+        "characterSentences": [
+            "Salut c moi moumou la Reine des Mouettes..."
+        ],
+        "choice1": {
+            "nextStep": "-1",
+            "action": "none",
+            "buttonText": "Run"
+        },
+        "choice2": {
+            "nextStep": "-1",
+            "action": "none",
+            "buttonText": "Walk"
+        }
+    }],
+    "dialogEntrance": [{
+            "_commentaire": 0,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Ok dude we need to hurry. You're so hungry I can hear your stomach moaning. There must be a room after this endless corridor..."
+            ],
+            "choice1": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:classroom",
+                "buttonText": "Run"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:classroom",
+                "buttonText": "Walk"
+            }
+        },
+        {
+            "_commentaire": 1,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "So... You are cheating on me now ? You really prefer water ? Just tasteless, boring... healthy water ? Come on. I'm disappointed."
+            ],
+            "choice1": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:classroom",
+                "buttonText": "Run"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:classroom",
+                "buttonText": "Walk"
+            }
+        }
+    ],
 
-    {
-      "_commentaire": 1,
-      "characterName": "Bottle",
-      "characterSentences": [
-        "So... You are cheating on me now ? You really prefer water ? Just tasteless, boring... healthy water ? Come on. I'm disappointed."
-      ],
-      "choice1": {
-        "nextStep": "2",
-        "action": "enterClassroom",
-        "buttonText": "Run"
-      },
-      "choice2": {
-        "nextStep": "2",
-        "action": "enterClassroom",
-        "buttonText": "Walk"
-      }
-    },
+    "dialogClassroom": [{
+            "_commentaire": 0,
+            "characterName": "Teacher",
+            "characterSentences": [
+                "Today we are studying human fears, so open your books at page 13 please. Human are very fragile and dangerous creatures at the same time, so you must be very careful if you ever meet one of them.",
+                "Oh my god, who are you ? Do you know that you are in the monsters' primary school ?"
+            ],
+            "choice1": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "Yes"
+            },
+            "choice2": {
+                "nextStep": "2",
+                "action": "none",
+                "buttonText": "No"
+            }
+        },
 
-    {
-      "_commentaire": 2,
-      "characterName": "Teacher",
-      "characterSentences": [
-        "Today we are studying human fears, so open your books at page 13 please. Human are very fragile and dangerous creatures at the same time, so you must be very careful if you ever meet one of them.",
-        "Oh my god, who are you ? Do you know that you are in the monsters' primary school ?"
-      ],
-      "choice1": {
-        "nextStep": "3",
-        "action": "none",
-        "buttonText": "Yes"
-      },
-      "choice2": {
-        "nextStep": "4",
-        "action": "none",
-        "buttonText": "No"
-      }
-    },
+        {
+            "_commentaire": 1,
+            "characterName": "Me",
+            "characterSentences": [
+                "In fact, yes, I do... I am... the school inspector ? *hiccup* "
+            ],
+            "choice1": {
+                "nextStep": "3",
+                "action": "none",
+                "buttonText": "*more hiccups*"
+            },
+            "choice2": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
 
-    {
-      "_commentaire": 3,
-      "characterName": "Me",
-      "characterSentences": [
-        "In fact, yes, I do... I am... the school inspector ? *hiccup* "
-      ],
-      "choice1": {
-        "nextStep": "5",
-        "action": "none",
-        "buttonText": "*more hiccups*"
-      },
-      "choice2": {
-        "nextStep": "1",
-        "action": "none",
-        "buttonText": "none"
-      }
-    },
+        {
+            "_commentaire": 2,
+            "characterName": "Me",
+            "characterSentences": [
+                "I did not know, sorry. *hiccup* I'm just looking for the innkeeper... *hiccup*"
+            ],
+            "choice1": {
+                "nextStep": "3",
+                "action": "none",
+                "buttonText": "*more hiccups*"
+            },
+            "choice2": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
 
-    {
-      "_commentaire": 4,
-      "characterName": "Me",
-      "characterSentences": [
-        "I did not know, sorry. *hiccup* I'm just looking for the innkeeper... *hiccup*"
-      ],
-      "choice1": {
-        "nextStep": "5",
-        "action": "none",
-        "buttonText": "*more hiccups*"
-      },
-      "choice2": {
-        "nextStep": "1",
-        "action": "none",
-        "buttonText": "none"
-      }
-    },
+        {
+            "_commentaire": 3,
+            "characterName": "Teacher",
+            "characterSentences": [
+                "Are you drunk ? This behaviour is not acceptable. These kids are only 107 years old ! You should set a good example to young generations.",
+                "If you don't apologize, we will be forced to... punish you."
+            ],
+            "choice1": {
+                "nextStep": "4",
+                "action": "none",
+                "buttonText": "Prevention mission"
+            },
+            "choice2": {
+                "nextStep": "5",
+                "action": "none",
+                "buttonText": "Clown show"
+            }
+        },
 
-    {
-      "_commentaire": 5,
-      "characterName": "Teacher",
-      "characterSentences": [
-        "Are you drunk ? This behaviour is not acceptable. These kids are only 107 years old ! You should set a good example to young generations.",
-        "If you don't apologize, we will be forced to... punish you."
-      ],
-      "choice1": {
-        "nextStep": "6",
-        "action": "none",
-        "buttonText": "Prevention mission"
-      },
-      "choice2": {
-        "nextStep": "7",
-        "action": "none",
-        "buttonText": "Clown show"
-      }
-    },
+        {
+            "_commentaire": 4,
+            "characterName": "Me",
+            "characterSentences": [
+                "Yes. Yes. That's excatly my point. I'm here to prevent these young innocent children to fall into the trap of alcohol..."
+            ],
+            "choice1": {
+                "nextStep": "-1",
+                "action": "loseFriendshipDoingPrevention",
+                "buttonText": "Continue & leave"
+            },
+            "choice2": {
+                "nextStep": "-",
+                "action": "none",
+                "buttonText": "none"
+            }
+        },
 
-    {
-      "_commentaire": 6,
-      "characterName": "Me",
-      "characterSentences": [
-        "Yes. Yes. That's excatly my point. I'm here to prevent these young innocent children to fall into the trap of alcohol..."
-      ],
-      "choice1": {
-        "nextStep": "8",
-        "action": "loseFriendshipDoingPrevention",
-        "buttonText": "Continue & leave"
-      },
-      "choice2": {
-        "nextStep": "7",
-        "action": "none",
-        "buttonText": "none"
-      }
-    },
+        {
+            "_commentaire": 5,
+            "characterName": "Me",
+            "characterSentences": [
+                "Nooooo... I'm not drunk at all... I'm playing. Indeed, I'm a professional performing artist : the Happy Clown. Are you ready to laugh, kids ?"
+            ],
+            "choice1": {
+                "nextStep": "5",
+                "action": "winFriendshipDoingClown",
+                "buttonText": "Continue & leave"
+            },
+            "choice2": {
+                "nextStep": "-",
+                "action": "none",
+                "buttonText": "none"
+            }
+        }
+    ],
 
-    {
-      "_commentaire": 7,
-      "characterName": "Me",
-      "characterSentences": [
-        "Nooooo... I'm not drunk at all... I'm playing. Indeed, I'm a professional performing artist : the Happy Clown. Are you ready to laugh, kids ?"
-      ],
-      "choice1": {
-        "nextStep": "9",
-        "action": "winFriendshipDoingClown",
-        "buttonText": "Continue & leave"
-      },
-      "choice2": {
-        "nextStep": "7",
-        "action": "none",
-        "buttonText": "none"
-      }
-    },
+    "dialogCorridor": [{
+            "_commentaire": 0,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "The trap of alcohol ? Are you serious ? That's how you see our friendship ? At least you escaped from these prohibitionists."
+            ],
+            "choice1": {
+                "nextStep": "-",
+                "action": "tryFriendshipToTellSecret",
+                "buttonText": "Should I go forward ?"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:bossRoom",
+                "buttonText": "Keep moving."
+            }
+        },
 
-    {
-      "_commentaire": 8,
-      "characterName": "Bottle",
-      "characterSentences": [
-        "The trap of alcohol ? Are you serious ? That's how you see our friendship ? At least you escaped from these prohibitionists."
-      ],
-      "choice1": {
-        "nextStep": "10",
-        "action": "tryFrienshipToTellSecret",
-        "buttonText": "Should I go forward ?"
-      },
-      "choice2": {
-        "nextStep": "10",
-        "action": "enterBossRoom",
-        "buttonText": "Keep moving."
-      }
-    },
+        {
+            "_commentaire": 1,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Hahahaha... You were ridiculous. But I must confess it's a success, Happy Clown. You must be so drunk to have come up with this idea. At least you escaped from these prohibitionists."
+            ],
+            "choice1": {
+                "nextStep": "1",
+                "action": "tryFriendshipToTellSecret",
+                "buttonText": "Should I go forward ?"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:bossRoom",
+                "buttonText": "Keep moving."
+            }
+        },
+        {
+            "_commentaire": 2,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Yes, you must continue to try and find your dessert. We are close to the Great Dragon's room now. I would have liked to know you better..."
+            ],
+            "choice1": {
+                "nextStep": "2",
+                "action": "tryFriendshipToTellSecret",
+                "buttonText": "This way ?"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:bossRoom",
+                "buttonText": "Go straight ahead."
+            }
+        },
 
-    {
-      "_commentaire": 9,
-      "characterName": "Bottle",
-      "characterSentences": [
-        "Hahahaha... You were ridiculous. But I must confess it's a success, Happy Clown. You must be so drunk to have come up with this idea. At least you escaped from these prohibitionists."
-      ],
-      "choice1": {
-        "nextStep": "10",
-        "action": "tryFrienshipToTellSecret",
-        "buttonText": "Should I go forward ?"
-      },
-      "choice2": {
-        "nextStep": "10",
-        "action": "enterBossRoom",
-        "buttonText": "Keep moving."
-      }
-    },
+        {
+            "_commentaire": 3,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "You know what ? I like you. So, if you want, I can guide you to the room of a powerful witch who can help you."
+            ],
+            "choice1": {
+                "nextStep": "3",
+                "action": "enterNewRoom:dataO",
+                "buttonText": "Good idea !"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:bossRoom",
+                "buttonText": "Not now, I'm hungry."
+            }
+        }
+    ],
 
-    {
-      "_commentaire": 10,
-      "characterName": "Innkeeper",
-      "characterSentences": [
-        "Are you a spy ? Are you trying to steal my secret recipe ?"
-      ],
-      "choice1": {
-        "nextStep": "10",
-        "action": "none",
-        "buttonText": "No"
-      },
-      "choice2": {
-        "nextStep": "10",
-        "action": "none",
-        "buttonText": "No"
-      }
-    },
+    "dialogDataO": [{
+        "_commentaire": 0,
+        "characterName": "Data Occultist",
+        "characterSentences": [
+            "Hello, young dwarf. I was waiting for your visit. I had the magic intuition that it was highly probable."
+        ],
+        "choice1": {
+            "nextStep": "0",
+            "action": "none",
+            "buttonText": "Hi"
+        },
+        "choice2": {
+            "nextStep": "0",
+            "action": "none",
+            "buttonText": "Hi"
+        }
+    }],
 
-    {
-      "_commentaire": 11,
-      "characterName": "Bottle",
-      "characterSentences": [
-        "Yes, you must continue to try and find your dessert. We are close to the Great Dragon's room now. I would have liked to know you better..."
-      ],
-      "choice1": {
-        "nextStep": "11",
-        "action": "tryFrienshipToTellSecret",
-        "buttonText": "This way ?"
-      },
-      "choice2": {
-        "nextStep": "10",
-        "action": "enterBossRoom",
-        "buttonText": "Go straight ahead."
-      }
-    },
-
-    {
-      "_commentaire": 12,
-      "characterName": "Bottle",
-      "characterSentences": [
-        "You know what ? I like you. So, if you want, I can guide you to the room of a powerful witch who can help you."
-      ],
-      "choice1": {
-        "nextStep": "13",
-        "action": "enterDataOccultistRoom",
-        "buttonText": "Good idea !"
-      },
-      "choice2": {
-        "nextStep": "10",
-        "action": "enterBossRoom",
-        "buttonText": "Not now, I'm hungry."
-      }
-    },
-
-    {
-      "_commentaire": 13,
-      "characterName": "Data Occultist",
-      "characterSentences": [
-        "Hello, young dwarf. I was waiting for your visit. I had the magic intuition that it was highly probable."
-      ],
-      "choice1": {
-        "nextStep": "13",
-        "action": "none",
-        "buttonText": "Hi"
-      },
-      "choice2": {
-        "nextStep": "13",
-        "action": "none",
-        "buttonText": "Hi"
-      }
-    }
-  ]
+    "dialogBossRoom": [{
+        "_commentaire": 0,
+        "characterName": "Innkeeper",
+        "characterSentences": [
+            "Are you a spy ? Are you trying to steal my secret recipe ?"
+        ],
+        "choice1": {
+            "nextStep": "0",
+            "action": "none",
+            "buttonText": "No"
+        },
+        "choice2": {
+            "nextStep": "0",
+            "action": "none",
+            "buttonText": "No"
+        }
+    }]
 }
