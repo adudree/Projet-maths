@@ -882,7 +882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &678742236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -961,9 +961,9 @@ MonoBehaviour:
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1699191320}
-        m_TargetAssemblyTypeName: RandomName, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1699191322}
+        m_TargetAssemblyTypeName: actionButtonsTest, Assembly-CSharp
+        m_MethodName: setPlayerName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2402,11 +2402,11 @@ MonoBehaviour:
   waterDrop: {fileID: 311032122}
   background: {fileID: 41825359}
   randomVariables: {fileID: 1246883931}
-  randomName: {fileID: 0}
+  randomName: {fileID: 699905760}
   liquidBeer: {fileID: 815974474}
   dialogManager: {fileID: 1152854476}
   fumee: {fileID: 859907198}
-  playerName: {fileID: 678742237}
+  playerName: {fileID: 678742235}
   finalName: 
 --- !u!1 &1780451724
 GameObject:
