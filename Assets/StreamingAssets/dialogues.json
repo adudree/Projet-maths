@@ -133,12 +133,12 @@
             ],
             "choice1": {
                 "nextStep": "8",
-                "action": "none",
+                "action": "askName",
                 "buttonText": "My name is..."
             },
             "choice2": {
                 "nextStep": "8",
-                "action": "none",
+                "action": "askName",
                 "buttonText": "I'm..."
             }
         },
@@ -151,12 +151,12 @@
             ],
             "choice1": {
                 "nextStep": "9",
-                "action": "none",
+                "action": "noName",
                 "buttonText": "That's not what I said..."
             },
             "choice2": {
                 "nextStep": "10",
-                "action": "none",
+                "action": "yesName",
                 "buttonText": "Yeah, that's my name."
             }
         },
@@ -169,12 +169,12 @@
             ],
             "choice1": {
                 "nextStep": "9",
-                "action": "none",
+                "action": "noName",
                 "buttonText": "Not really..."
             },
             "choice2": {
                 "nextStep": "10",
-                "action": "none",
+                "action": "yesName",
                 "buttonText": ".... Okay, fine."
             }
         },

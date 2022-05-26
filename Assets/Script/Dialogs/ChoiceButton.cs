@@ -34,7 +34,6 @@ public class ChoiceButton : MonoBehaviour
             string[] action = choice.action.Split(':');
             string methodParam = action[1];
             methodName = action[0];
-
             argument = new object[] { methodParam };
         }
         else
@@ -42,6 +41,8 @@ public class ChoiceButton : MonoBehaviour
             methodName = choice.action; 
         }
         MethodInfo mi = actionButtonScript.GetType().GetMethod(methodName);
+        Debug.Log("retour value : " + actionButtonScript + " - " + argument);
+
 
         object objectReturn = mi.Invoke(actionButtonScript, argument);
         bool shouldContinue = objectReturn.Equals(true);

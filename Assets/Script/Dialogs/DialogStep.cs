@@ -18,14 +18,12 @@ namespace DialogStepSpace
     [System.Serializable]
     public class Dialogs
     {
-        public DialogStep[] dialogSteps;
         public DialogStep[] dialogHostel;
         public DialogStep[] dialogEntrance;
         public DialogStep[] dialogClassroom;
         public DialogStep[] dialogCorridor;
         public DialogStep[] dialogDataO;
         public DialogStep[] dialogBossRoom;
-        public DialogStep[] test;
     }
 }
 
