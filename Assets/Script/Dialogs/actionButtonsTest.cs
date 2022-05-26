@@ -6,41 +6,50 @@ using UnityEngine.UI;
 public class actionButtonsTest : MonoBehaviour
 {
     public GameObject waterDrop;
-    public GameObject background; 
+    public GameObject background;
     public GameObject randomVariables;
     public GameObject randomName;
     public GameObject liquidBeer;
     public GameObject dialogManager;
     public GameObject fumee;
-    public GameObject playerName; 
-    public string finalName; 
+    public GameObject playerName;
+    public string finalName;
+
     //Les fonctions doivent retourner true si apres l'action le dialogue continue normalement, 
     //et false pour gerer elle meme l'appel au dialogStep suivant (en bloquant le dialogManager). 
 
     public bool none() { return true; }
 
-    public bool askName() {
+    public bool askName()
+    {
         playerName.SetActive(true);
         return false;
     }
-    
+
     // called when input field is submitted 
-    public void setPlayerName() {
-        finalName = playerName.GetComponent<InputField>().text;
+    public void setPlayerName()
+    {
+        finalName = randomName.GetComponent<RandomName>().updateString(playerName.GetComponent<InputField>().text);
+        PlayerPrefs.SetString("playerName", finalName);
+
         playerName.SetActive(false);
         dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("hostel", 8);
     }
 
     // called when buttons are clicked 
-    public bool yesName() {
+    public bool yesName()
+    {
         Debug.Log("tu t'appelles donc " + finalName + " pour la vie.");
         dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("hostel", 10);
         return true;
     }
 
-    public bool noName() {
+    public bool noName()
+    {
         finalName = randomName.GetComponent<RandomName>().updateString(finalName);
-        Debug.Log("ton prénom, c'est " + finalName + " alors ?");
+        PlayerPrefs.SetString("playerName", finalName);
+
+        Debug.Log("ton prénom, c'est " + PlayerPrefs.GetString("playerName") + " alors ?");
         dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("hostel", 9);
         return true;
     }
@@ -101,10 +110,11 @@ public class actionButtonsTest : MonoBehaviour
             dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("dataO");
             return false;
         }
-        return true; 
+        return true;
     }
 
-    bool isWaterDropActive(string room) {
+    bool isWaterDropActive(string room)
+    {
         return room == "entrance";
     }
 }

@@ -19,7 +19,7 @@ public class RandomVariables : MonoBehaviour
     }
 
     // Loi de Bernoulli 
-    bool BernoulliLaw(float parameter)
+    public bool BernoulliLaw(float parameter)
     {
         if (parameter <= 0f || parameter >= 1f)
         {
@@ -83,33 +83,5 @@ public class RandomVariables : MonoBehaviour
 
         int nextState = randomFiniteSet(probasDependingOnState[actualState]);
         return nextState;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Pour v�rifier vers o� max la loi exponentielle tombe : 
-        /*float valueSup5 = 0;
-        for (int i = 0; i < 1000; i++)
-        {
-            if(exponentialLaw(0.599f) > 5f)
-            {
-                valueSup5++;
-            }
-        }
-        Debug.Log("nombre fois sup 5 / 100 = " + valueSup5 / 10f);*/
-
-        //Pour voir si la loi uniforme a l'air uniforme
-        /*float moyenne = 0;
-        for (int i = 0; i < 1000; i++)
-        {
-            moyenne += uniformLaw(0f, 100f);
-        }
-        Debug.Log("moyenne loi uniforme de 0 � 100 : " + moyenne / 1000f);*/
-        }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

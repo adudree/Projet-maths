@@ -16,9 +16,20 @@ public class DialogSentenceWriter : MonoBehaviour
     public GameObject charName;
     public GameObject dialogManager;
     public GameObject specialEvents;
+    public GameObject actionButton;
 
+    string playerName = "";
+
+    public void loadPlayerName()
+    {
+        playerName = PlayerPrefs.GetString("playerName");
+    }
     IEnumerator writeSentence(string sentence)
     {
+        // replace name in sentence
+        string playerName = PlayerPrefs.GetString("playerName");
+        if (PlayerPrefs.HasKey("playerName")) sentence = nameInSentence(playerName, sentence);
+
         continueButton.SetActive(false);
         writing = true;
         gameObject.GetComponent<Text>().text = "";
@@ -76,6 +87,16 @@ public class DialogSentenceWriter : MonoBehaviour
         //giveChoicesIfTextIsFinish();
     }
 
+
+    string nameInSentence(string newName, string sentence)
+    {
+        if (sentence.Contains("%name%"))
+        {
+            return sentence.Replace("%name%", newName);
+        }
+        return sentence;
+    }
+
     public void changeSentences(string[] newSentences)
     {
         if (sentences == null || index == sentences.Length)
@@ -85,6 +106,7 @@ public class DialogSentenceWriter : MonoBehaviour
             choice1Button.SetActive(false);
             choice2Button.SetActive(false);
         }
+
     }
 
     // Start is called before the first frame update

@@ -53,8 +53,6 @@ public class ChoiceButton : MonoBehaviour
         {
             dialogManager.GetComponent<DialogManager>().changeStep(choice.nextStep);
         }
-
-
     }
 
     // Start is called before the first frame update

@@ -17,17 +17,18 @@ public class DialogManager : MonoBehaviour
     public int currentStep;
 
     public Dialogs dialogs = new Dialogs();
-    public DialogStep [] currentDialog = new DialogStep [0];
-    public string actualDialog; 
+    public DialogStep[] currentDialog = new DialogStep[0];
+    public string actualDialog;
 
     string jsonPath, jsonString;
+    string playerName;
 
     public void changeStep(int newStep)
     {
         if (newStep == -1)
         {
             // dialogContainer.SetActive(false);
-            switchDialogType(); 
+            switchDialogType();
         }
         else
         {
@@ -36,7 +37,13 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    void switchDialogType() {
+    public void loadPlayerName()
+    {
+
+    }
+
+    void switchDialogType()
+    {
         Debug.Log("actual dialog : " + actualDialog);
         switch (actualDialog)
         {
@@ -51,7 +58,7 @@ public class DialogManager : MonoBehaviour
                 break;
             case "corridor":
                 setNewCurrentDialog("bossRoom");
-                break;            
+                break;
             case "dataO":
                 setNewCurrentDialog("bossRoom");
                 break;
@@ -60,27 +67,28 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public void setNewCurrentDialog(string dialog, int step = 0) {
+    public void setNewCurrentDialog(string dialog, int step = 0)
+    {
         switch (dialog)
         {
             case "entrance":
-                currentDialog = dialogs.dialogEntrance; 
+                currentDialog = dialogs.dialogEntrance;
                 actualDialog = "entrance";
                 break;
             case "classroom":
-                currentDialog = dialogs.dialogClassroom; 
+                currentDialog = dialogs.dialogClassroom;
                 actualDialog = "classroom";
                 break;
             case "corridor":
-                currentDialog = dialogs.dialogCorridor; 
+                currentDialog = dialogs.dialogCorridor;
                 actualDialog = "corridor";
                 break;
             case "bossRoom":
-                currentDialog = dialogs.dialogBossRoom; 
+                currentDialog = dialogs.dialogBossRoom;
                 actualDialog = "bossRoom";
-                break;            
+                break;
             case "dataO":
-                currentDialog = dialogs.dialogBossRoom; 
+                currentDialog = dialogs.dialogBossRoom;
                 actualDialog = "dataO";
                 break;
             default:
@@ -92,6 +100,11 @@ public class DialogManager : MonoBehaviour
     void setNewStep(DialogStep newDialogStep)
     {
         charName.GetComponent<Text>().text = newDialogStep.characterName;
+
+        // switch "me" into playerName
+        playerName = PlayerPrefs.GetString("playerName");
+        if (PlayerPrefs.HasKey("playerName") && charName.GetComponent<Text>().text == "Me") charName.GetComponent<Text>().text = playerName;
+
         charPicture.GetComponent<CharacterPicture>().setCharacterPicture(newDialogStep.characterName);
         Text.GetComponent<DialogSentenceWriter>().changeSentences(newDialogStep.characterSentences);
         choice1Button.GetComponent<ChoiceButton>().setChoice(newDialogStep.choice1);
@@ -111,6 +124,8 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.DeleteKey("playerName");
+
         readJsonDialog();
         changeStep(0);
     }

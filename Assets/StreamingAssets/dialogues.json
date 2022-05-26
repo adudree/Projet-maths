@@ -128,8 +128,7 @@
                 "You know, I'm not a normal bottle. Yes I can talk, but I can also help you!",
                 "You can click on me to drink my hydromel. If you do it, I will appreciate you more... Maybe...",
                 "Be careful to not drinking water. I HATE water. And I will hate you if you will do it.",
-                "But you didn't even introduce yourself... What's your name?",
-                "It will call the inputName function... when it will be coded."
+                "But you didn't even introduce yourself... What's your name?"
             ],
             "choice1": {
                 "nextStep": "8",
@@ -146,8 +145,7 @@
             "_commentaire": 8,
             "characterName": "Bottle",
             "characterSentences": [
-                "Huh, %name% ? That's quite ugly...",
-                "it will trigger the random name generator."
+                "Huh, %name% ? That's quite ugly..."
             ],
             "choice1": {
                 "nextStep": "9",
@@ -164,8 +162,7 @@
             "_commentaire": 9,
             "characterName": "Bottle",
             "characterSentences": [
-                "Woops, sorry... You're %name%, true?",
-                "it will trigger the random name generator."
+                "Woops, sorry... You're %name%, true?"
             ],
             "choice1": {
                 "nextStep": "9",
@@ -227,7 +224,7 @@
             },
             "choice2": {
                 "nextStep": "-1",
-                "action": "none",
+                "action": "enterNewRoom:entrance",
                 "buttonText": "none"
             }
         }
