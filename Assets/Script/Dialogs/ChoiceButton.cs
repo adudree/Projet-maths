@@ -41,14 +41,8 @@ public class ChoiceButton : MonoBehaviour
             methodName = choice.action; 
         }
         MethodInfo mi = actionButtonScript.GetType().GetMethod(methodName);
-        Debug.Log("retour value : " + actionButtonScript + " - " + argument);
-
-
         object objectReturn = mi.Invoke(actionButtonScript, argument);
         bool shouldContinue = objectReturn.Equals(true);
-
-        Debug.Log("retour value : " + shouldContinue);
-
         if (shouldContinue)
         {
             dialogManager.GetComponent<DialogManager>().changeStep(choice.nextStep);

@@ -44,7 +44,6 @@ public class DialogManager : MonoBehaviour
 
     void switchDialogType()
     {
-        Debug.Log("actual dialog : " + actualDialog);
         switch (actualDialog)
         {
             case "hostel":
@@ -71,6 +70,10 @@ public class DialogManager : MonoBehaviour
     {
         switch (dialog)
         {
+            case "hostel":
+                currentDialog = dialogs.dialogHostel;
+                actualDialog = "hostel";
+                break; 
             case "entrance":
                 currentDialog = dialogs.dialogEntrance;
                 actualDialog = "entrance";
@@ -88,7 +91,7 @@ public class DialogManager : MonoBehaviour
                 actualDialog = "bossRoom";
                 break;
             case "dataO":
-                currentDialog = dialogs.dialogBossRoom;
+                currentDialog = dialogs.dialogDataO;
                 actualDialog = "dataO";
                 break;
             default:
@@ -102,8 +105,9 @@ public class DialogManager : MonoBehaviour
         charName.GetComponent<Text>().text = newDialogStep.characterName;
 
         // switch "me" into playerName
-        playerName = PlayerPrefs.GetString("playerName");
+        playerName = PlayerPrefs.GetString("playerName", "fauxprenom");
         if (PlayerPrefs.HasKey("playerName") && charName.GetComponent<Text>().text == "Me") charName.GetComponent<Text>().text = playerName;
+        Debug.Log(newDialogStep.characterName); 
 
         charPicture.GetComponent<CharacterPicture>().setCharacterPicture(newDialogStep.characterName);
         Text.GetComponent<DialogSentenceWriter>().changeSentences(newDialogStep.characterSentences);

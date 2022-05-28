@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using Random = UnityEngine.Random;
+
 
 public class RandomVariables : MonoBehaviour
 {
@@ -47,6 +51,21 @@ public class RandomVariables : MonoBehaviour
         return nbTrial;
     }
 
+    public int PoissonLaw(float parameter) {
+        float rand = Random.value;
+        int x = 0;                          // variable aléatoire
+        float y = Mathf.Exp(-parameter);    // fonction de répartition 
+        float z = y;                        // valeur F(0) de la fonction de répartition
+                                            // de la variable aléatoire en 0
+
+        while (z < rand) {
+            x++;
+            y = y * parameter / x; 
+            z += y;
+        }
+        return x; 
+    }
+
 
     int randomFiniteSet(float[] probabilities)
     {
@@ -79,9 +98,9 @@ public class RandomVariables : MonoBehaviour
         float[] probaFromB = { 0.6f, 0.3f, 0.1f };
         
         float[][] probasDependingOnState = { probaFromR, probaFromG, probaFromB };
-        Debug.Log("longueurs " + probasDependingOnState[actualState].Length);
 
         int nextState = randomFiniteSet(probasDependingOnState[actualState]);
         return nextState;
     }
+
 }

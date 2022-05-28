@@ -11,7 +11,6 @@ public class Fumee : MonoBehaviour
     IEnumerator changeColorRegularly()
     {
         colorState = randomVariables.GetComponent<RandomVariables>().MarkovChainRGB(colorState);
-        Debug.Log("state = " + colorState);
         float colorRandom = randomVariables.GetComponent<RandomVariables>().uniformLaw(0f, 1f);
         Color color = gameObject.GetComponent<SpriteRenderer>().color;
         color[colorState] = colorRandom;

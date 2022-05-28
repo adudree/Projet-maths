@@ -42,7 +42,6 @@ public class WaterDrop : MonoBehaviour
     {
         float parameter = 0.559f;
         float timeBeforeFall = randomVariables.GetComponent<RandomVariables>().exponentialLaw(parameter);
-        Debug.Log("time to wait before the water drop falls : " + timeBeforeFall + " seconds");
         yield return new WaitForSeconds(timeBeforeFall);
         falls = true;
        
@@ -84,7 +83,6 @@ public class WaterDrop : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("click Water");
         liquidBeer.GetComponent<LiquidScoreColor>().removeFriendshipPoint();
         maskBeer.GetComponent<MaskSoberScore>().addSobrietyPoint();
         gameObject.SetActive(false);
@@ -103,7 +101,7 @@ public class WaterDrop : MonoBehaviour
             dropFalls();
         }
         
-       /*   //Méthode plus complexe pour détecter si un sprite est cliqué mais ça marche... au cas où :
+       /*   //Mï¿½thode plus complexe pour dï¿½tecter si un sprite est cliquï¿½ mais ï¿½a marche... au cas oï¿½ :
             Vector2 mouseWorldPosition = camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hitInfo = Physics2D.Raycast(mouseWorldPosition, Vector2.zero);
 

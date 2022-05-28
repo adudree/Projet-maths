@@ -28,7 +28,10 @@ public class DialogSentenceWriter : MonoBehaviour
     {
         // replace name in sentence
         string playerName = PlayerPrefs.GetString("playerName");
+        int nbDessert = PlayerPrefs.GetInt("nbDessert");
+
         if (PlayerPrefs.HasKey("playerName")) sentence = nameInSentence(playerName, sentence);
+        if (PlayerPrefs.HasKey("nbDessert")) sentence = dessertInSentence(nbDessert, sentence);
 
         continueButton.SetActive(false);
         writing = true;
@@ -85,6 +88,16 @@ public class DialogSentenceWriter : MonoBehaviour
             StartCoroutine(writeSentence(sentences[index]));
         }
         //giveChoicesIfTextIsFinish();
+    }
+
+    string dessertInSentence(int nbDessert, string sentence)
+    {
+        if (sentence.Contains("%nbDessert%"))
+        {
+            return sentence.Replace("%nbDessert%", nbDessert.ToString());
+        }
+        return sentence;
+
     }
 
 

@@ -45,7 +45,6 @@ public class OptionSettings : MonoBehaviour
             finalValue = values[0];
         }
         else { finalValue = values[1]; }
-        Debug.Log(finalValue);
 
         PlayerPrefs.SetString("dessert", finalValue);
     }

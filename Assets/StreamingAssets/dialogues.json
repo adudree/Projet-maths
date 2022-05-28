@@ -212,7 +212,7 @@
             }
         },
         {
-            "_commentaire": 11,
+            "_commentaire": 12,
             "characterName": "Me",
             "characterSentences": [
                 "Okay, let's go!"
@@ -225,6 +225,23 @@
             "choice2": {
                 "nextStep": "-1",
                 "action": "enterNewRoom:entrance",
+                "buttonText": "none"
+            }
+        },
+        {
+            "_commentaire": 13,
+            "characterName": "Me",
+            "characterSentences": [
+                "Huh, finally I have my dessert!"
+            ],
+            "choice1": {
+                "nextStep": "13",
+                "action": "none",
+                "buttonText": "*nom nom*"
+            },
+            "choice2": {
+                "nextStep": "13",
+                "action": "none",
                 "buttonText": "none"
             }
         }
@@ -344,7 +361,7 @@
             "_commentaire": 4,
             "characterName": "Me",
             "characterSentences": [
-                "Yes. Yes. That's excatly my point. I'm here to prevent these young innocent children to fall into the trap of alcohol..."
+                "Yes. Yes. That's exactly my point. I'm here to prevent these young innocent children to fall into the trap of alcohol..."
             ],
             "choice1": {
                 "nextStep": "-1",
@@ -446,42 +463,132 @@
                 "action": "enterNewRoom:bossRoom",
                 "buttonText": "Not now, I'm hungry."
             }
+        },
+        {
+            "_commentaire": 4,
+            "characterName": "Bottle",
+            "characterSentences": [
+                "Ok, thanks to the Data Occultist you should obtain your dessert!"
+            ],
+            "choice1": {
+                "nextStep": "3",
+                "action": "enterNewRoom:bossRoom",
+                "buttonText": "Let's go!"
+            },
+            "choice2": {
+                "nextStep": "-1",
+                "action": "enterNewRoom:bossRoom",
+                "buttonText": "Yee ha!"
+            }
+        },
+        {
+            "_commentaire": 4,
+            "characterName": "Me",
+            "characterSentences": [
+                "So... What am I supposed to do right now...?",
+                "Am I supposed to try again?"
+            ],
+            "choice1": {
+                "nextStep": "2",
+                "action": "none",
+                "buttonText": "*hiccup*"
+            },
+            "choice2": {
+                "nextStep": "2",
+                "action": "none",
+                "buttonText": "none"
+            }
         }
     ],
 
     "dialogDataO": [{
-        "_commentaire": 0,
-        "characterName": "Data Occultist",
-        "characterSentences": [
-            "Hello, young dwarf. I was waiting for your visit. I had the magic intuition that it was highly probable."
-        ],
-        "choice1": {
-            "nextStep": "0",
-            "action": "none",
-            "buttonText": "Hi"
+            "_commentaire": 0,
+            "characterName": "Data Occultist",
+            "characterSentences": [
+                "Hello, young dwarf. I was waiting for your visit. I had the magic intuition that it was highly probable."
+            ],
+            "choice1": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "Hi"
+            },
+            "choice2": {
+                "nextStep": "1",
+                "action": "none",
+                "buttonText": "Hello"
+            }
         },
-        "choice2": {
-            "nextStep": "0",
-            "action": "none",
-            "buttonText": "Hi"
+
+        {
+            "_commentaire": 1,
+            "characterName": "Data Occultist",
+            "characterSentences": [
+                "Do you want your dessert?"
+            ],
+            "choice1": {
+                "nextStep": "0",
+                "action": "allowVictory",
+                "buttonText": "Yes, help me!"
+            },
+            "choice2": {
+                "nextStep": "0",
+                "action": "none",
+                "buttonText": "No thanks"
+            }
         }
-    }],
+    ],
 
     "dialogBossRoom": [{
-        "_commentaire": 0,
-        "characterName": "Innkeeper",
-        "characterSentences": [
-            "Are you a spy ? Are you trying to steal my secret recipe ?"
-        ],
-        "choice1": {
-            "nextStep": "0",
-            "action": "none",
-            "buttonText": "No"
+            "_commentaire": 0,
+            "characterName": "Innkeeper",
+            "characterSentences": [
+                "Are you a spy ? Are you trying to steal my secret recipe ?",
+                "Get out! You'll have your dessert when it'll be ready."
+            ],
+            "choice1": {
+                "nextStep": "-1",
+                "action": "backToCorridor",
+                "buttonText": "Oh wow, OK..."
+            },
+            "choice2": {
+                "nextStep": "0",
+                "action": "none",
+                "buttonText": "Sheesh"
+            }
         },
-        "choice2": {
-            "nextStep": "0",
-            "action": "none",
-            "buttonText": "No"
+        {
+            "_commentaire": 1,
+            "characterName": "Innkeeper",
+            "characterSentences": [
+                "Omg, what are you doing here?!",
+                "You aren't supposed to be here... Are you really hungry?"
+            ],
+            "choice1": {
+                "nextStep": "2",
+                "action": "calculateNbDessert",
+                "buttonText": "How many desserts?"
+            },
+            "choice2": {
+                "nextStep": "0",
+                "action": "none",
+                "buttonText": "No"
+            }
+        }, {
+            "_commentaire": 2,
+            "characterName": "Innkeeper",
+            "characterSentences": [
+                "Ok, I'll give you %nbDessert% desserts! Sorry for the delay..."
+            ],
+            "choice1": {
+                "nextStep": "2",
+                "action": "backToHostel",
+                "buttonText": "Thank you!"
+            },
+            "choice2": {
+                "nextStep": "2",
+                "action": "none",
+                "buttonText": "No"
+            }
         }
-    }]
+    ]
 }

@@ -58,18 +58,6 @@ public class RandomFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*bool test1 = CoinFlipping(0.01f);
-        bool test2 = CoinFlipping(0.99f);
-        bool test3 = CoinFlipping(1.2f); 
-        Debug.Log("Test 1 = " + test1 + " Test 2 = " + test2 + " Test 3 = " + test3);*/
-        /*
-        float[] array1 = { 0.01f, 0.01f };
-        Debug.Log(randomFiniteSet(array1));
-
-        float proba = 1f / 6f;
-        Debug.Log("Proba d� = " + proba);
-        float[] array2 = { proba, proba, proba, proba, proba, proba };
-        Debug.Log(randomFiniteSet(array2));*/
 
         float sum = 0;
         for (int i = 0; i < 1000; i++)

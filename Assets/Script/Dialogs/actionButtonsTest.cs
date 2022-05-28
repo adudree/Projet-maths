@@ -14,6 +14,12 @@ public class actionButtonsTest : MonoBehaviour
     public GameObject fumee;
     public GameObject playerName;
     public string finalName;
+    public int nbDessert;
+
+    public bool victory = false;
+
+    [SerializeField] GameObject table;
+    [SerializeField] GameObject dessert;
 
     //Les fonctions doivent retourner true si apres l'action le dialogue continue normalement, 
     //et false pour gerer elle meme l'appel au dialogStep suivant (en bloquant le dialogManager). 
@@ -24,6 +30,14 @@ public class actionButtonsTest : MonoBehaviour
     {
         playerName.SetActive(true);
         return false;
+    }
+
+
+    public void skipButton()
+    {
+        background.GetComponent<backgroundScript>().changeBackground("corridor");
+        dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("corridor");
+        table.SetActive(false);
     }
 
     // called when input field is submitted 
@@ -39,7 +53,6 @@ public class actionButtonsTest : MonoBehaviour
     // called when buttons are clicked 
     public bool yesName()
     {
-        Debug.Log("tu t'appelles donc " + finalName + " pour la vie.");
         dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("hostel", 10);
         return true;
     }
@@ -49,14 +62,13 @@ public class actionButtonsTest : MonoBehaviour
         finalName = randomName.GetComponent<RandomName>().updateString(finalName);
         PlayerPrefs.SetString("playerName", finalName);
 
-        Debug.Log("ton prénom, c'est " + PlayerPrefs.GetString("playerName") + " alors ?");
         dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("hostel", 9);
         return true;
     }
 
     public bool winFriendshipDoingClown()
     {
-        float negociationSkills = 0.3f; //A remplacer par un parametre defini par le joueur
+        float negociationSkills = PlayerPrefs.GetFloat("negociation", 0.3f);
         int nbSentencesBeforeEscape = randomVariables.GetComponent<RandomVariables>().geometricLaw(negociationSkills);
         for (int i = 0; i < nbSentencesBeforeEscape; i++)
         {
@@ -70,7 +82,7 @@ public class actionButtonsTest : MonoBehaviour
 
     public bool loseFriendshipDoingPrevention()
     {
-        float negociationSkills = 0.3f; //A remplacer par un parametre defini par le joueur
+        float negociationSkills = PlayerPrefs.GetFloat("negociation", 0.3f);
         int nbSentencesBeforeEscape = randomVariables.GetComponent<RandomVariables>().geometricLaw(negociationSkills);
         for (int i = 0; i < nbSentencesBeforeEscape; i++)
         {
@@ -110,12 +122,57 @@ public class actionButtonsTest : MonoBehaviour
             dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("dataO");
             return false;
         }
+        else if (newRoom == "bossRoom")
+        {
+            Debug.Log(victory);
+            if (victory)
+            {
+                dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("bossRoom", 1);
+            }
+            else
+            {
+                dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("bossRoom", 0);
+            }
+            return false;
+        }
+        else return true;
+    }
+
+    public bool calculateNbDessert()
+    {
+        float hungry = PlayerPrefs.GetFloat("cooking");
+        nbDessert = randomVariables.GetComponent<RandomVariables>().PoissonLaw(hungry);
+        PlayerPrefs.SetInt("nbDessert", nbDessert);
         return true;
+    }
+
+    public bool allowVictory()
+    {
+        victory = true;
+        fumee.SetActive(false);
+        background.GetComponent<backgroundScript>().changeBackground("corridor");
+        dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("corridor", 4);
+        return false;
     }
 
     bool isWaterDropActive(string room)
     {
         return room == "entrance";
     }
-}
 
+    public bool backToCorridor()
+    {
+        background.GetComponent<backgroundScript>().changeBackground("corridor");
+        dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("corridor", 5);
+        return false;
+    }
+
+    public bool backToHostel()
+    {
+        background.GetComponent<backgroundScript>().changeBackground("hostel");
+        dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("hostel", 13);
+        dessert.SetActive(true);
+        table.SetActive(true);
+        return false;
+    }
+}
