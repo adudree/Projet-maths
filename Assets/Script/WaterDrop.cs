@@ -25,6 +25,7 @@ public class WaterDrop : MonoBehaviour
         float xMin = -9f;
         float xMax = 8.5f;
         float xRandom = randomVariables.GetComponent<RandomVariables>().uniformLaw(xMin, xMax);
+        PlayerPrefs.SetFloat("positionWaterDrop", xRandom);
         return xRandom;
     }
 
@@ -40,8 +41,9 @@ public class WaterDrop : MonoBehaviour
 
     IEnumerator waitAndFall()
     {
-        float parameter = 0.559f;
+        float parameter = 0.599f;
         float timeBeforeFall = randomVariables.GetComponent<RandomVariables>().exponentialLaw(parameter);
+        PlayerPrefs.SetFloat("timeWaterDrop", timeBeforeFall);
         yield return new WaitForSeconds(timeBeforeFall);
         falls = true;
        

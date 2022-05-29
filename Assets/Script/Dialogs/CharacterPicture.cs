@@ -15,6 +15,8 @@ public class CharacterPicture : MonoBehaviour
 
     public void setCharacterPicture(string name)
     {
+        string dessert = PlayerPrefs.GetString("dessert");
+
         image = this.GetComponent<Image>();
         var tempColor = image.color;
         
@@ -32,7 +34,13 @@ public class CharacterPicture : MonoBehaviour
             }
             if (name == "Teacher")
             {
-                image.sprite = dragonFire;
+                if (dessert == "Ice cream")
+                {
+                    image.sprite = dragonIce;
+                } else
+                {
+                    image.sprite = dragonFire;
+                }
             }
             if (name == "Data Occultist")
             {
@@ -40,7 +48,13 @@ public class CharacterPicture : MonoBehaviour
             }
             if (name == "Innkeeper")
             {
-                image.sprite = innkeeperFire;
+                if (dessert == "Ice cream")
+                {
+                    image.sprite = innkeeperIce;
+                } else
+                {
+                    image.sprite = innkeeperFire;
+                }
             }
         }
 

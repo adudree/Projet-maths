@@ -8,6 +8,7 @@ using Debug = UnityEngine.Debug;
 
 public class RandomName : MonoBehaviour
 {
+    public List<int> RademacherDraws = new List<int>();
 
     public GameObject randomVariables;
     
@@ -17,10 +18,17 @@ public class RandomName : MonoBehaviour
     string setLetter (char c) {
         char newChar = c; 
         int indice = randomVariables.GetComponent<RandomVariables>().rademacherLaw();
+        RademacherDraws.Add(indice);
         if (indice == 1) {
             if (c == 'z') newChar = 'a'; 
             else if (c =='Z') newChar = 'A';  
             else newChar = (char)(c + 1);
+        }
+        if (indice == - 1)
+        {
+            if (c == 'a') newChar = 'z';
+            else if (c == 'A') newChar = 'Z';
+            else newChar = (char)(c - 1);
         }
         return newChar.ToString(); 
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fumee : MonoBehaviour
 {
+    public List<float> ColorDraws = new List<float>();
 
     public GameObject randomVariables;
     int colorState = 0;
@@ -12,6 +13,7 @@ public class Fumee : MonoBehaviour
     {
         colorState = randomVariables.GetComponent<RandomVariables>().MarkovChainRGB(colorState);
         float colorRandom = randomVariables.GetComponent<RandomVariables>().uniformLaw(0f, 1f);
+        ColorDraws.Add(colorRandom);
         Color color = gameObject.GetComponent<SpriteRenderer>().color;
         color[colorState] = colorRandom;
         gameObject.GetComponent<SpriteRenderer>().color = color;

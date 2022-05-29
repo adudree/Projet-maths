@@ -28,6 +28,7 @@ public class OptionSettings : MonoBehaviour
                 break;
             case "cooking":
                 value = cooking.value;
+                initCooking(value);
                 break;
             default:
                 break;
@@ -47,5 +48,11 @@ public class OptionSettings : MonoBehaviour
         else { finalValue = values[1]; }
 
         PlayerPrefs.SetString("dessert", finalValue);
+    }
+
+    public void initCooking(float param)
+    {
+        int nbDessert = randomVariables.GetComponent<RandomVariables>().PoissonLaw(param);
+        PlayerPrefs.SetInt("nbDessert", nbDessert);
     }
 }

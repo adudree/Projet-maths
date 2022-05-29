@@ -11,9 +11,10 @@ public class SpecialEvents : MonoBehaviour
         waterDrop.GetComponent<WaterDrop>().makeDropAppear();
     }
 
-    public void goEvent(int dialogStep)
+    public void goEvent(int dialogStep, string currentDialog)
     {
-        if (dialogStep == 0)
+        
+        if (dialogStep == 12 && currentDialog == "entrance")
         {
             waterDropAppears();
         }

@@ -53,7 +53,8 @@ public class DialogSentenceWriter : MonoBehaviour
         if (index == sentences.Length && writing == false)
         {
             int currentDialogStep = dialogManager.GetComponent<DialogManager>().currentStep;
-            specialEvents.GetComponent<SpecialEvents>().goEvent(currentDialogStep);
+            string currentDialog = dialogManager.GetComponent<DialogManager>().actualDialog;
+            specialEvents.GetComponent<SpecialEvents>().goEvent(currentDialogStep, currentDialog);
         }
     }
 
@@ -65,7 +66,8 @@ public class DialogSentenceWriter : MonoBehaviour
             choice1Button.SetActive(true);
 
             string nameOfCharacter = charName.GetComponent<Text>().text;
-            if (nameOfCharacter != "Me")
+            string playerName = PlayerPrefs.GetString("playerName");
+            if (nameOfCharacter != "Me" && nameOfCharacter != playerName)
             {
                 choice2Button.SetActive(true);
             }

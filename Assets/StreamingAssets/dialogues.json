@@ -96,12 +96,12 @@
             "choice1": {
                 "nextStep": "7",
                 "action": "none",
-                "buttonText": "Continue"
+                "buttonText": "Thanks"
             },
             "choice2": {
                 "nextStep": "7",
                 "action": "none",
-                "buttonText": "none"
+                "buttonText": "Friend ?"
             }
         },
         {
@@ -113,13 +113,13 @@
             "choice1": {
                 "nextStep": "7",
                 "action": "none",
-                "buttonText": "Continue"
+                "buttonText": "Sorry"
             },
-            "choice2": {
+             "choice2": {
                 "nextStep": "7",
                 "action": "none",
-                "buttonText": "none"
-            }
+                "buttonText": "*hiccup*"
+             }
         },
         {
             "_commentaire": 7,
@@ -127,7 +127,7 @@
             "characterSentences": [
                 "You know, I'm not a normal bottle. Yes I can talk, but I can also help you!",
                 "You can click on me to drink my hydromel. If you do it, I will appreciate you more... Maybe...",
-                "Be careful to not drinking water. I HATE water. And I will hate you if you will do it.",
+                "Be careful not to drink water. I HATE water. And I will hate you if you do it.",
                 "But you didn't even introduce yourself... What's your name?"
             ],
             "choice1": {
@@ -523,7 +523,25 @@
             "_commentaire": 1,
             "characterName": "Data Occultist",
             "characterSentences": [
-                "Do you want your dessert?"
+                "Do you want your dessert? Or do you want to know the Truth about your life ?"
+            ],
+            "choice1": {
+                "nextStep": "0",
+                "action": "allowVictory",
+                "buttonText": "Help me, I'm hungry!"
+            },
+            "choice2": {
+                "nextStep": "2",
+                "action": "showStats",
+                "buttonText": "What Truth ?"
+            }
+        },
+
+        {
+            "_commentaire": 2,
+            "characterName": "Data Occultist",
+            "characterSentences": [
+                "Do you believe in Destiny ? Everything is random, and that is how it works. Now do you want your dessert ? "
             ],
             "choice1": {
                 "nextStep": "0",
@@ -531,9 +549,9 @@
                 "buttonText": "Yes, help me!"
             },
             "choice2": {
-                "nextStep": "0",
-                "action": "none",
-                "buttonText": "No thanks"
+                "nextStep": "1",
+                "action": "hideStats",
+                "buttonText": "Ew, hide that, please."
             }
         }
     ],
@@ -576,9 +594,10 @@
         }, {
             "_commentaire": 2,
             "characterName": "Innkeeper",
-            "characterSentences": [
-                "Ok, I'll give you %nbDessert% desserts! Sorry for the delay..."
-            ],
+          "characterSentences": [
+            "Ok, there is your dessert. Sorry for the delay...",
+            "To make up for the delay, I'll offer you %nbDessert% free desserts that you can order whenever you want!"
+          ],
             "choice1": {
                 "nextStep": "2",
                 "action": "backToHostel",

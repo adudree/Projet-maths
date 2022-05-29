@@ -13,6 +13,7 @@ public class actionButtonsTest : MonoBehaviour
     public GameObject dialogManager;
     public GameObject fumee;
     public GameObject playerName;
+    public GameObject GameStatsArray;
     public string finalName;
     public int nbDessert;
 
@@ -70,6 +71,7 @@ public class actionButtonsTest : MonoBehaviour
     {
         float negociationSkills = PlayerPrefs.GetFloat("negociation", 0.3f);
         int nbSentencesBeforeEscape = randomVariables.GetComponent<RandomVariables>().geometricLaw(negociationSkills);
+        PlayerPrefs.SetInt("nbSentences", nbSentencesBeforeEscape);
         for (int i = 0; i < nbSentencesBeforeEscape; i++)
         {
             liquidBeer.GetComponent<LiquidScoreColor>().addFriendshipPoint();
@@ -84,6 +86,7 @@ public class actionButtonsTest : MonoBehaviour
     {
         float negociationSkills = PlayerPrefs.GetFloat("negociation", 0.3f);
         int nbSentencesBeforeEscape = randomVariables.GetComponent<RandomVariables>().geometricLaw(negociationSkills);
+        PlayerPrefs.SetInt("nbSentences", nbSentencesBeforeEscape);
         for (int i = 0; i < nbSentencesBeforeEscape; i++)
         {
             liquidBeer.GetComponent<LiquidScoreColor>().removeFriendshipPoint();
@@ -137,22 +140,41 @@ public class actionButtonsTest : MonoBehaviour
         }
         else return true;
     }
+    /*
+        public bool calculateNbDessert()
+        {
+            float hungry = PlayerPrefs.GetFloat("cooking");
+            nbDessert = randomVariables.GetComponent<RandomVariables>().PoissonLaw(hungry);
+            PlayerPrefs.SetInt("nbDessert", nbDessert);
+            return true;
+        }*/
 
     public bool calculateNbDessert()
     {
-        float hungry = PlayerPrefs.GetFloat("cooking");
-        nbDessert = randomVariables.GetComponent<RandomVariables>().PoissonLaw(hungry);
-        PlayerPrefs.SetInt("nbDessert", nbDessert);
+        //maintenant on calcule au debut (test)
         return true;
     }
 
     public bool allowVictory()
     {
+        hideStats();
         victory = true;
         fumee.SetActive(false);
         background.GetComponent<backgroundScript>().changeBackground("corridor");
         dialogManager.GetComponent<DialogManager>().setNewCurrentDialog("corridor", 4);
         return false;
+    }
+
+    public bool showStats()
+    {
+        GameStatsArray.GetComponent<GameStats>().showStats();
+        return true;
+    }
+
+    public bool hideStats()
+    {
+        GameStatsArray.SetActive(false);
+        return true;
     }
 
     bool isWaterDropActive(string room)
