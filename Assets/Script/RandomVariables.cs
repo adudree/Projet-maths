@@ -15,6 +15,7 @@ public class RandomVariables : MonoBehaviour
         return (b - a) * rand + a;
     }
 
+    // Loi Exponentielle
     // 95% chances to get <= 5s with parameter = 0.599
     public float exponentialLaw(float parameter)
     {
@@ -40,7 +41,7 @@ public class RandomVariables : MonoBehaviour
         else return 1; 
     }
 
-    // Loi géométrique
+    // Loi Géométrique
     public int geometricLaw(float parameter)
     {
         int nbTrial = 1;
@@ -51,6 +52,7 @@ public class RandomVariables : MonoBehaviour
         return nbTrial;
     }
 
+    // Loi de Poisson
     public int PoissonLaw(float parameter) {
         float rand = Random.value;
         int x = 0;                          // variable aléatoire
